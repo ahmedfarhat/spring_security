@@ -20,7 +20,7 @@ import com.springsecurity.basic.domain.Roles;
 import com.springsecurity.basic.domain.User;
 import com.springsecurity.basic.dto.UserDTO;
 import com.springsecurity.basic.exception.UserAlreadyExistException;
-import com.springsecurity.basic.repository.UserAuthorityRepository;
+import com.springsecurity.basic.repository.UserRolesRepository;
 import com.springsecurity.basic.repository.UserRepository;
 @Service
 @Transactional
@@ -28,7 +28,7 @@ public class UserService implements UserDetailsService{
 	private final org.slf4j.Logger log = LoggerFactory.getLogger(UserService.class);
 
 		@Autowired private UserRepository userRepository;
-	    @Autowired private UserAuthorityRepository userAuthorityRepository;
+	    @Autowired private UserRolesRepository userRolesRepository;
 	    @Autowired   private  PasswordEncoder passwordEncoder;
 	    @Override
 	    @Transactional
@@ -61,7 +61,7 @@ public class UserService implements UserDetailsService{
 		     
 	    	List<Roles> lstRoles = new ArrayList<Roles>();
 	    	for (String name : set) {
-	    		lstRoles.add(userAuthorityRepository.findByOrderByName(name));
+	    		lstRoles.add(userRolesRepository.findByName(name));
 				
 			}
             return lstRoles;

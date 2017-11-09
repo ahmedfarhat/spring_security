@@ -14,12 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 import com.springsecurity.basic.domain.Roles;
 import com.springsecurity.basic.domain.User;
 import com.springsecurity.basic.repository.UserRepository;
+import com.springsecurity.basic.repository.UserRolesRepository;
 
 @Component
 public class DataLoader implements ApplicationRunner {
 	
 
 	   @Autowired private UserRepository userRepository;
+	   @Autowired private UserRolesRepository userRolesRepo;
 	   private  PasswordEncoder passwordEncoder =new BCryptPasswordEncoder();
  
 
@@ -27,6 +29,8 @@ public class DataLoader implements ApplicationRunner {
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
 		User user = new User();
+		Roles rl = new Roles("ADMIN");
+		userRolesRepo.save(rl);
         user.setFirstName("admin");
         user.setLastName("admin");
          
