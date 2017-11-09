@@ -46,8 +46,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     MyLogoutSuccessHandlerOne logoutSuccessHandlerOne() {
         return new MyLogoutSuccessHandlerOne();
     }
-  
-
    
     public Http401UnauthorizedEntryPoint http401UnauthorizedEntryPoint() {
         return new Http401UnauthorizedEntryPoint();
@@ -61,11 +59,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-            .antMatchers(HttpMethod.OPTIONS, "/**")
-            .antMatchers("/app/**/*.{js,html}")
-            .antMatchers("/i18n/**")
-            .antMatchers("/content/**")
-            .antMatchers("/swagger-ui/index.html");
+            .antMatchers(HttpMethod.OPTIONS, "/**");
+
     }
 
     @Override
@@ -91,8 +86,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/api/authenticate").permitAll()
             .antMatchers("/api/**").authenticated()
             .and().csrf().disable();
-
-
     }
 
 
