@@ -16,6 +16,8 @@ import com.springsecurity.basic.domain.User;
 import com.springsecurity.basic.repository.UserRepository;
 import com.springsecurity.basic.repository.UserRolesRepository;
 
+import javassist.bytecode.stackmap.BasicBlock.Catch;
+
 @Component
 public class DataLoader implements ApplicationRunner {
 	
@@ -28,7 +30,9 @@ public class DataLoader implements ApplicationRunner {
 	@Transactional
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
-		/*User user = new User();
+		try{
+			User user = new User();
+	
 		Roles rl = new Roles("ADMIN");
 		userRolesRepo.save(rl);
         user.setFirstName("admin");
@@ -42,6 +46,8 @@ public class DataLoader implements ApplicationRunner {
         user.setAuthorities(roles);
         userRepository.save(user);
 
-		*/
+	}catch(Exception e){
+		
+	}
 	}
 }
