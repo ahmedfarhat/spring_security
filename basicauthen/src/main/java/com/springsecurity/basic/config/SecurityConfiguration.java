@@ -59,7 +59,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         web.ignoring()
-            .antMatchers(HttpMethod.OPTIONS, "/**");
+            .antMatchers(HttpMethod.OPTIONS, "/**")
+            .antMatchers("/console/*")
+            .antMatchers("/h2-console/*");
 
     }
 

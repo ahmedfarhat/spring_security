@@ -52,8 +52,8 @@ public class UserService implements UserDetailsService{
 
 
 	    private List<Roles> getAuthorities(User user) {
-	       
-	            return user.getAuthorities();
+	    	List<Roles> lst = user.getAuthorities();
+	            return lst;
 	       
 	    }
 

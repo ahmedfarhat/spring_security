@@ -28,7 +28,7 @@ public class DataLoader implements ApplicationRunner {
 	@Transactional
 	@Override
 	public void run(ApplicationArguments arg0) throws Exception {
-		User user = new User();
+		/*User user = new User();
 		Roles rl = new Roles("ADMIN");
 		userRolesRepo.save(rl);
         user.setFirstName("admin");
@@ -42,6 +42,6 @@ public class DataLoader implements ApplicationRunner {
         user.setAuthorities(roles);
         userRepository.save(user);
 
-		
+		*/
 	}
 }

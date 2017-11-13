@@ -82,10 +82,10 @@ public class User {
     @Column(name = "reset_date")
     private ZonedDateTime resetDate = null;
 
-    @JsonIgnore
+  
     @ManyToMany
     @JoinTable(
-        name = "user_roles",
+        name = "userhasroles",
         joinColumns = {
         		@JoinColumn(name = "user_id", referencedColumnName = "id")},
         inverseJoinColumns = {@JoinColumn(name = "role_name", referencedColumnName = "name")})
@@ -255,6 +255,7 @@ public class User {
             ", activated='" + activated + '\'' +
             ", langKey='" + langKey + '\'' +
             ", activationKey='" + activationKey + '\'' +
+            ", roles='" + authorities + '\'' +
             "}";
     }
 }

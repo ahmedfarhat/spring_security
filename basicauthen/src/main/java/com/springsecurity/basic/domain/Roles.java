@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "roles")
+@Table(name = "roles_users")
 public class Roles {
 	private static final long serialVersionUID = 1L;
 
